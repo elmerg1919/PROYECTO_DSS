@@ -10,13 +10,36 @@ require_once "C:/wamp64/www/GIT_P/php/Conexion.php";
         <title>CRUD</title>
     </head>
     <body>
+
+    <form action="insertar.php" method="post">
+        <label >NOMBRE DE USUARIO:</label>
+        <p></p>
+        <input type="text" name="txtusername" id="">
+        <P></P>
+        <label >CONTRASEÑA:</label>
+        <p></p>
+        <input type="text" name="txtpassword" id="">
+        <p></p>
+        <label >NOMBRE</label>
+        <P></P>
+        <input type="text" name="txtnombre" id="">
+        <p></p>
+        <label >APELLIDO</label>
+        <p></p>
+        <input type="text" name="txtapellido" id="">
+        <p></p>
+        <input type="file" name="imagen" id="">
+        <p></p>
+        <button>AGREGAR</button>
+    </form>
+    <br><br>
         <table style="border-collapse: collapse;" border="2">
             <tr>
                 <td>USUARIO</td>
                 <td>CONTRASEÑA</td>
                 <td>NOMBRE</td>
                 <td>APELLIDO</td>
-                <td>a</td>
+                <!--<td>a</td>-->
             </tr>
 <?php
 $obj= new metodos();
@@ -31,7 +54,7 @@ foreach($datos as $key){
             <td><?php echo $key['Clien_Contra'];?></td>
             <td><?php echo $key['Clien_Nombre'];?></td>
             <td><?php echo $key['Clien_Apellido'];?></td>
-            <td><?php echo $key['Admin_User'];?></td>
+            <!--<td><?php/* echo $key['Admin_User'];*/?></td>-->
             </tr>
             <?php
             }
