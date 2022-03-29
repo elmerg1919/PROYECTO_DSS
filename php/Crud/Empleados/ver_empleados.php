@@ -44,6 +44,7 @@ Database::disconnect();
                     <th>Número telefónico</th>
                     <th>Género</th>
                     <th>Cargo</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -61,10 +62,24 @@ Database::disconnect();
                         <td><?php echo $row['numero_telefono']; ?></td>
                         <td><?php echo $row['genero']; ?></td>
                         <td><?php echo $row['nombre_cargo']; ?></td>
-                        <td><?php echo '								
+                        <td><?php echo $row['estado_usuario']; ?></td>
+                        <td>
+                            <?php
+                            if ($row["estado_usuario"] == "H") {
+                                echo '                                                        
+                                <a href="inhabilitar_empleado.php?id=' . $row["id_username"] . '" class="btn btn-light">Inhabilitar</a>	                                
+                                ';
+                            } else {
+                                echo '   
+                                <a href="habilitar_empleado.php?id=' . $row["id_username"] . '" class="btn btn-dark">Habilitar</a>	
+                                ';
+                            }
+                            ?>
+                            <?php echo '                               							
 							<a href="modificar_empleado.php?id=' . $row["id_username"] . '" class="btn btn-primary">Modificar</a>
 							<a href="eliminar_empleado.php?id=' . $row["id_username"] . '" class="btn btn-danger">Eliminar</a>
-							'; ?></td>
+							'; ?>
+                        </td>
 
                     </tr>
                 <?php

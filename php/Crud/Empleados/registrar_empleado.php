@@ -10,11 +10,12 @@ if (!empty($_POST)) {
     $numero = trim($_POST['numero']);
     $genero = trim($_POST['genero']);
     $cargo = trim($_POST['cargo']);
+    $estado = trim($_POST['estado']);
 
     $cn = Database::connect();
     $cn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = $cn->prepare("INSERT INTO usuarios(nombre_usuario, id_username, usuario_contra, correo_usuario, dui, fecha_nacimiento, numero_telefono, genero, id_cargo) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $query->execute(array($nombre, $username, $password, $correo, $dui, $fechanac, $numero, $genero, $cargo));
+    $query = $cn->prepare("INSERT INTO usuarios(nombre_usuario, id_username, usuario_contra, correo_usuario, dui, fecha_nacimiento, numero_telefono, genero, id_cargo, estado_usuario) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $query->execute(array($nombre, $username, $password, $correo, $dui, $fechanac, $numero, $genero, $cargo, $estado));
     Database::disconnect();
 
     header('Location: ver_empleados.php');
@@ -57,42 +58,42 @@ if (!empty($_POST)) {
                 <form action="registrar_empleado.php" method="POST">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" placeholder="" name="nombre" id="nombre" /><br>
+                        <input type="text" class="form-control" placeholder="Ingresa tu nombre completo" name="nombre" id="nombre" required /><br>
                     </div>
                     <div class="form-group">
                         <label for="username">Nombre de usuario:</label>
-                        <input type="text" class="form-control" placeholder="" name="username" id="username" /><br>
+                        <input type="text" class="form-control" placeholder="Ingresa tu nombre de usuario" name="username" id="username" required /><br>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="Password" placeholder="" name="password" id="password" /><br>
+                        <input type="password" class="form-control" id="Password" placeholder="*****" name="password" id="password" required /><br>
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo electrónico</label>
-                        <input type="email" class="form-control" placeholder="" name="correo" id="correo" /><br>
+                        <input type="email" class="form-control" placeholder="Ej: correo@gmail.com" name="correo" id="correo" pattern="[a-zA-Z0-9._-]*@[a-zA-Z]*\.[a-zA-Z]{2,3}" required /><br>
                     </div>
                     <div class="form-group">
                         <label for="dui">Dui</label>
-                        <input type="text" class="form-control" placeholder="" name="dui" id="dui" /><br>
+                        <input type="text" class="form-control" placeholder="Ej: 00000000-0" name="dui" id="dui" pattern="[0-9]{8}-[0-9]{1}" required /><br>
                     </div>
                     <div class="form-group">
                         <label for="fechanac">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" placeholder="" name="fechanac" id="fechanac" /><br>
+                        <input type="date" class="form-control" name="fechanac" id="fechanac" required /><br>
                     </div>
                     <div class="form-group">
                         <label for="numero">Número electrónico</label>
-                        <input type="text" class="form-control" placeholder="" name="numero" id="numero" /><br>
+                        <input type="text" class="form-control" placeholder="Ej: 7777-7777" name="numero" id="numero" pattern="[267]{1}[0-9]{3}-[0-9]{4}" required /><br>
                     </div>
                     <div class="form-group">
                         <label for="genero">Género</label>
-                        <select name="genero" id="genero" class="form-control">
+                        <select name="genero" id="genero" class="form-control" required>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                         </select><br>
                     </div>
                     <div class="form-group">
                         <label for="cargo">Cargo</label>
-                        <select name="cargo" id="cargo" class="form-control">
+                        <select name="cargo" id="cargo" class="form-control" required>
                             <?php
                             $cn = Database::connect();
                             $cn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -108,6 +109,13 @@ if (!empty($_POST)) {
                                 $value++;
                             }
                             ?>
+                        </select><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select name="estado" id="estado" class="form-control" required>
+                            <option value="H">Habilitado</option>
+                            <option value="D">Desabilitado</option>
                         </select><br>
                     </div>
 

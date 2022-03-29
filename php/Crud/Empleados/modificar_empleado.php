@@ -58,7 +58,7 @@ if (!empty($_POST)) {
                     echo '
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" placeholder="" name="nombre" id="nombre" value="' . $data["nombre_usuario"] . '" /><br>
+                        <input type="text" class="form-control" placeholder="" name="nombre" id="nombre" value="' . $data["nombre_usuario"] . '" required/><br>
                     </div>
                     <div class="form-group">
                         <label for="username">Nombre de usuario:</label>
@@ -66,23 +66,23 @@ if (!empty($_POST)) {
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="Password" placeholder="" name="password" id="password" value="' . $data["usuario_contra"] . '" /><br>
+                        <input type="password" class="form-control" id="Password" placeholder="" name="password" id="password" value="' . $data["usuario_contra"] . '" required/><br>
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo electrónico</label>
-                        <input type="email" class="form-control" placeholder="" name="correo" id="correo" value="' . $data["correo_usuario"] . '" /><br>
+                        <input type="email" class="form-control" placeholder="" name="correo" id="correo" value="' . $data["correo_usuario"] . '" pattern="[a-zA-Z0-9._-]*@[a-zA-Z]*\.[a-zA-Z]{2,3}" required/><br>
                     </div>
                     <div class="form-group">
                         <label for="dui">Dui</label>
-                        <input type="text" class="form-control" placeholder="" name="dui" id="dui" value="' . $data["dui"] . '" /><br>
+                        <input type="text" class="form-control" placeholder="" name="dui" id="dui" value="' . $data["dui"] . '" pattern="[0-9]{8}-[0-9]{1}" required/><br>
                     </div>
                     <div class="form-group">
                         <label for="fechanac">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" placeholder="" name="fechanac" id="fechanac" value="' . $data["fecha_nacimiento"] . '" /><br>
+                        <input type="date" class="form-control" placeholder="" name="fechanac" id="fechanac" value="' . $data["fecha_nacimiento"] . '" required/><br>
                     </div>
                     <div class="form-group">
                         <label for="numero">Número electrónico</label>
-                        <input type="text" class="form-control" placeholder="" name="numero" id="numero" value="' . $data["numero_telefono"] . '" /><br>
+                        <input type="text" class="form-control" placeholder="" name="numero" id="numero" value="' . $data["numero_telefono"] . '" pattern="[267]{1}[0-9]{3}-[0-9]{4}" required/><br>
                     </div>
                     <div class="form-group">
                         <label for="genero">Género</label>

@@ -46,7 +46,7 @@ if (!empty($_POST)) {
                     include 'connection.php';
                     $cn = Database::connect();
                     $cn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $query = $cn->prepare("SELECT * FROM usuarios u INNER JOIN cargo c ON u.id_cargo = c.id_cargo;");
+                    $query = $cn->prepare("SELECT * FROM usuarios u INNER JOIN cargo c ON u.id_cargo = c.id_cargo WHERE id_username = ?");
                     $query->execute(array($id));
                     $data = $query->fetch(PDO::FETCH_ASSOC);
                     echo '
