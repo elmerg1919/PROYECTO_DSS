@@ -16,7 +16,26 @@ class metodos{
         $sql="INSERT into clientes (Clien_User,Clien_Contra,Clien_Nombre,Clien_Apellido)
          values ('$datos[0]','$datos[1]','$datos[2]','$datos[3]')";
 
-        $result=mysqli_query($conexion,$sql);
+        return $result=mysqli_query($conexion,$sql);
+    }
+
+    public function ActualizarDatos($datos){
+        $c=new conectar();
+        $conexion=$c->conexion();
+
+        $sql="UPDATE clientes set  Clien_User ='$datos[0]',
+        Clien_Contra='$datos[1]',
+        Clien_Nombre='$datos[2]',
+        Clien_Apellido='$datos[3]'
+        where Clien_User='$datos[4]'";
+        return $result=mysqli_query($conexion,$sql);
+    }
+
+    public function EliminarDatos($id){
+        $c=new conectar();
+        $conexion=$c->conexion();
+        $sql="DELETE FROM clientes where Clien_User='$id'";
+        return $result=mysqli_query($conexion,$sql);
     }
     
 }

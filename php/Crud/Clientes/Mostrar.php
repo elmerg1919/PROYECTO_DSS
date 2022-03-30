@@ -1,6 +1,6 @@
 <?php
 require_once "metodosCrud.php";
-require_once "C:/wamp64/www/GIT_P/php/Conexion.php";
+require_once "C:/wamp64/www/PROYECTO_DSS/php/Conexion.php";
 
 ?>
 
@@ -39,6 +39,8 @@ require_once "C:/wamp64/www/GIT_P/php/Conexion.php";
                 <td>CONTRASEÑA</td>
                 <td>NOMBRE</td>
                 <td>APELLIDO</td>
+                <td>ACTUALIZAR</td>
+                <td>Eliminar</td>
                 <!--<td>a</td>-->
             </tr>
 <?php
@@ -55,6 +57,10 @@ foreach($datos as $key){
             <td><?php echo $key['Clien_Nombre'];?></td>
             <td><?php echo $key['Clien_Apellido'];?></td>
             <!--<td><?php/* echo $key['Admin_User'];*/?></td>-->
+            <td><a href="editar.php?Clien_User=<?php echo $key['Clien_User']; ?>">Editar 
+        </a></td>
+        <td><a href="Eliminar.php?Clien_User=<?php echo $key['Clien_User']; ?>">Eliminar
+        </a></td>
             </tr>
             <?php
             }
