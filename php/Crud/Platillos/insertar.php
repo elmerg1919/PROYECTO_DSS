@@ -2,16 +2,16 @@
 require_once "metodosCrud.php";
 require_once "C:/wamp64/www/PROYECTO_DSS/php/Conexion.php";
 
-$username=$_POST['txtusername'];
-$password=$_POST['txtpassword'];
-$nombre=$_POST['txtnombre'];
-$apellido=$_POST['txtapellido'];
+$Codigo=$_POST['txtCodigo'];
+$Nombre=$_POST['txtNombre'];
+$Categoria=$_POST['txtCategoria'];
+$Imagen=addslashes(file_get_contents($_FILES['impimagen']['tmp_name']));
 
 $datos=array(
-    $username,
-    $password,
-    $nombre,
-    $apellido
+    $Codigo,
+    $Nombre,
+    $Categoria,
+    $Imagen
 );
 $obj= new metodos();
 if($obj->InsertarDatos($datos)==1){

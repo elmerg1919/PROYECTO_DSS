@@ -1,5 +1,5 @@
 <?php
-$id=$_GET['Clien_User'];
+$id=$_GET['Plat_Codigo'];
 
 require_once "metodosCrud.php";
 require_once "C:/wamp64/www/PROYECTO_DSS/php/Conexion.php";

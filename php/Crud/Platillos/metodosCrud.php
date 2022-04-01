@@ -24,18 +24,18 @@ class metodos{
         $c=new conectar();
         $conexion=$c->conexion();
 
-        $sql="UPDATE clientes set  Clien_User ='$datos[0]',
-        Clien_Contra='$datos[1]',
-        Clien_Nombre='$datos[2]',
-        Clien_Apellido='$datos[3]'
-        where Clien_User='$datos[4]'";
+        $sql="UPDATE platillo set  Plat_Codigo ='$datos[0]',
+        Plat_Nombre='$datos[1]',
+        Plat_Categoria='$datos[2]',
+        Plat_Imagen='$datos[3]'
+        where Plat_Codigo='$datos[4]'";
         return $result=mysqli_query($conexion,$sql);
     }
 
     public function EliminarDatos($id){
         $c=new conectar();
         $conexion=$c->conexion();
-        $sql="DELETE FROM clientes where Clien_User='$id'";
+        $sql="DELETE FROM platillo where Plat_Codigo='$id'";
         return $result=mysqli_query($conexion,$sql);
     }
     
