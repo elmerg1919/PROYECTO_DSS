@@ -10,17 +10,18 @@ class CONECTAR{
         $conexion=mysqli_connect($this->servidor,
             $this->usuario,
             $this->password,
-            $this->bd);
+            $this->bd,
+            3308);
         return $conexion;
     }
 }
 //PRUEBA DE CONEXION 
 //
-//$obj=new CONECTAR();
-//if ($obj->conexion()) {
-//    ECHO "simona la mona";
-//}
-//else{
-//    echo "Nel sin conexion";
-//}
+$obj=new CONECTAR();
+if ($obj->conexion()) {
+    ECHO "simona la mona";
+}
+else{
+    echo "Nel sin conexion";
+}
 ?>
