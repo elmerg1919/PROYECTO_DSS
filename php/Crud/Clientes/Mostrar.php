@@ -70,24 +70,24 @@ include '../../dark-theme.php';
                     <label>Apellido:</label>
                     <input type="text" name="txtapellido" id="" required class="input"><br>
                 </div>
-                <!--
+                
                 <div class="inputfield">
                     <label>Selecciona una imagen:</label>
                     <input type="file" name="impimagen" id="archivo" class="input">
                     <label for="archivo" class="labelArchivo">
                         <span> Elegir un archivo&hellip;</span></label>
                 </div>
-                -->                                                                            
+                                                                                        
 
                 <button class="btn btn-success" name="registrarse">Registrarse</button>
             </form>
 
         </div>
     </div>
-    <!--
+    
     <div class="datos">
         <?php
-        /*
+        
         $obj = new metodos();
         $sql = "SELECT Clien_User,Clien_Contra,Clien_Nombre,Clien_Apellido from clientes";
         $datos = $obj->MostrarDatos($sql);
@@ -112,9 +112,7 @@ include '../../dark-theme.php';
                     <td>Nombre</td>
                     <td>Apellido</td>
                     <td>Imagen</td>
-                    <td>Actualizar</td>
                     <td>Eliminar</td>
-                    <!--<td>a</td>-->
                 </tr>
                 <?php
                 foreach ($datos as $key) {
@@ -124,18 +122,17 @@ include '../../dark-theme.php';
                         <td><?php echo $key['Clien_Contra']; ?></td>
                         <td><?php echo $key['Clien_Nombre']; ?></td>
                         <td><?php echo $key['Clien_Apellido']; ?></td>
-                        <td><img width="500" src="data:image/jpg;base64,<?php //echo  base64_encode($key['Clien_Imagen']); ?>"></td>
                         <td><a href="editar.php?Clien_User=<?php echo $key['Clien_User']; ?>" class="edit">Editar</a></td>
                         <td><a href="Eliminar.php?Clien_User=<?php echo $key['Clien_User']; ?>" class="eliminar">Eliminar</a></td>
                     </tr>
             <?php
                 }
             }
-*/
+
         ?>
             </table>
     </div>
-        -->
+        
     <div>
         <a href="../Login/clientes/cliente.php" class="regresar btn btn-secondary">Regresar</a>
     </div>

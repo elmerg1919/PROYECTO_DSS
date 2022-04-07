@@ -31,7 +31,7 @@ include '../../dark-theme.php';
 
 <body>
     <div class="topnav">
-        <a href="#">
+        <a href="../../../index.php">
             <p>La Costeña</p>
         </a>
         <a href="#">

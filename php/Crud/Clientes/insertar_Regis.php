@@ -1,6 +1,6 @@
 <?php
 require_once "metodosCrud.php";
-require_once "C:/wamp64/www/PROYECTO_DSS/php/Conexion.php";
+require_once "../../conexion.php";
 
 $username = $_POST['txtusername'];
 $password = $_POST['txtpassword'];
@@ -15,8 +15,9 @@ $datos = array(
 );
 $obj = new metodos();
 if ($obj->InsertarDatos($datos) == 1) {
-    echo "AQUI DEBE IR LA PAGINA PRINCIPAL";
-    echo "Menu y esas cosas pero en si si funciona";
+    //echo "AQUI DEBE IR LA PAGINA PRINCIPAL";
+    //echo "Menu y esas cosas pero en si si funciona";
+    header("location: ../Login/clientes/cliente.php");
 } else {
     echo "FALLO FEO";
 }

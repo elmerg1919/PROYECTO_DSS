@@ -99,7 +99,7 @@ include '../../../dark-theme.php';
                 </div>
             <?php } ?>
             <div class="btnRegis">
-                <a href="../../Clientes/Mostrar.php">
+                <a href="../../Clientes/Registros_Cli.php">
                     <p>Registrarse</p>
                 </a>
             </div>

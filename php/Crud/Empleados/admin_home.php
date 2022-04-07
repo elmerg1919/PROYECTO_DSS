@@ -24,7 +24,7 @@ include '../../dark-theme.php';
 <body>
 
     <div class="topnav">
-        <a href="#">
+        <a href="../../../index.php">
             <p>La Costeña</p>
         </a>
         <a href="#">
@@ -67,6 +67,11 @@ include '../../dark-theme.php';
                     <img src="../../../img/empleados.png">
                     <h4>Platillos</h4>
                     <a href="../Platillos/Mostrar.php">Ver</a>
+                </div>
+                <div class="card">
+                    <img src="../../../img/empleados.png">
+                    <h4>Clientes</h4>
+                    <a href="../Clientes/Mostrar.php">Ver</a>
                 </div>
             </div>
 
