@@ -36,7 +36,7 @@ include '../../dark-theme.php';
         <a href="#">
             <p>YouTube</p>
         </a>
-        <a href="../Login/admin/cerrar-sesion.php">
+        <a href="../Login/clientes/cerrar-sesion.php">
             <p>Cerrar sesión</p>
         </a>
         <a href="#">
@@ -59,14 +59,9 @@ include '../../dark-theme.php';
             </div>
             <div class="container-cards">
                 <div class="card">
-                    <img src="../../../img/empleados.png">
-                    <h4>Empleados</h4>
-                    <a href="ver_empleados.php">Ver</a>
-                </div>
-                <div class="card">
-                    <img src="../../../img/empleados.png">
-                    <h4>Platillos</h4>
-                    <a href="../Platillos/Mostrar.php">Ver</a>
+                    <img src="../../../img/reservacion.png">
+                    <h4>Reservación</h4>
+                    <a href="#">Ver</a>
                 </div>
             </div>
 

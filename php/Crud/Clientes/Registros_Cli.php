@@ -6,25 +6,27 @@ require_once "C:/wamp64/www/PROYECTO_DSS/php/Conexion.php";
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>CRUD</title>
-    </head>
-    <body>
+
+<head>
+    <title>CRUD</title>
+</head>
+
+<body>
 
     <form action="insertar_Regis.php" method="post">
-        <label >NOMBRE DE USUARIO:</label>
+        <label>NOMBRE DE USUARIO:</label>
         <p></p>
         <input type="text" name="txtusername" id="">
         <P></P>
-        <label >CONTRASEÑA:</label>
+        <label>CONTRASEÑA:</label>
         <p></p>
         <input type="text" name="txtpassword" id="">
         <p></p>
-        <label >NOMBRE</label>
+        <label>NOMBRE</label>
         <P></P>
         <input type="text" name="txtnombre" id="">
         <p></p>
-        <label >APELLIDO</label>
+        <label>APELLIDO</label>
         <p></p>
         <input type="text" name="txtapellido" id="">
         <p></p>
@@ -33,6 +35,7 @@ require_once "C:/wamp64/www/PROYECTO_DSS/php/Conexion.php";
         <button>Registrar</button>
     </form>
 
-        
-    </body>
+
+</body>
+
 </html>

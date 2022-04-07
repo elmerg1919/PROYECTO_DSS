@@ -1,22 +1,7 @@
 <?php
-if (!empty($_POST)) {
-    include 'connection.php';
-    $nombre = trim($_POST['nombre']);
-    $username = trim($_POST['username']);
-    $password = md5(trim($_POST['password']));
-    $correo = trim($_POST['correo']);
-    $dui = trim($_POST['dui']);
-    $fechanac = trim($_POST['fechanac']);
-    $numero = trim($_POST['numero']);
-    $genero = trim($_POST['genero']);
-    $cargo = trim($_POST['cargo']);
-
-    $cnu = Database::connect();
-    $cnu->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = $cnu->prepare("UPDATE usuarios SET usuario_contra = ?, nombre_usuario = ?, correo_usuario = ?, dui = ?, fecha_nacimiento = ?, numero_telefono = ?, genero = ?, id_cargo = ? WHERE id_username = ?");
-    $query->execute(array($password, $nombre, $correo, $dui, $fechanac, $numero, $genero, $cargo, $username));
-    Database::disconnect();
-    header("Location: ver_empleados.php");
+session_start();
+if (!isset($_SESSION['id_username'])) {
+    header("Location: ../Login/admin/admin.php");
 }
 ?>
 <!DOCTYPE html>
@@ -126,3 +111,24 @@ if (!empty($_POST)) {
 </body>
 
 </html>
+<?php
+if (!empty($_POST)) {
+    include 'connection.php';
+    include("metodos-empleados.php");
+
+    $nombre = trim($_POST['nombre']);
+    $username = trim($_POST['username']);
+    $password = md5(trim($_POST['password']));
+    $correo = trim($_POST['correo']);
+    $dui = trim($_POST['dui']);
+    $fechanac = trim($_POST['fechanac']);
+    $numero = trim($_POST['numero']);
+    $genero = trim($_POST['genero']);
+    $cargo = trim($_POST['cargo']);
+
+    $obj = new MetodosEmpleados();
+    $obj->actualizarEmpleado($password, $nombre, $correo, $dui, $fechanac, $numero, $genero, $cargo, $username);
+
+    header("Location: ver_empleados.php");
+}
+?>

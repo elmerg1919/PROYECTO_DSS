@@ -1,5 +1,7 @@
 <?php
 include 'connection.php';
+include("metodos-empleados.php");
+
 if (!empty($_POST)) {
     $nombre = trim($_POST['nombre']);
     $username = trim($_POST['username']);
@@ -12,11 +14,8 @@ if (!empty($_POST)) {
     $cargo = trim($_POST['cargo']);
     $estado = trim($_POST['estado']);
 
-    $cn = Database::connect();
-    $cn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = $cn->prepare("INSERT INTO usuarios(nombre_usuario, id_username, usuario_contra, correo_usuario, dui, fecha_nacimiento, numero_telefono, genero, id_cargo, estado_usuario) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $query->execute(array($nombre, $username, $password, $correo, $dui, $fechanac, $numero, $genero, $cargo, $estado));
-    Database::disconnect();
+    $obj = new MetodosEmpleados();
+    $obj->ingresarEmpleado($nombre, $username, $password, $correo, $dui, $fechanac, $numero, $genero, $cargo, $estado);
 
     header('Location: ver_empleados.php');
 }

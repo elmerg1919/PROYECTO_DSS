@@ -1,18 +1,13 @@
-<?php
-session_start();
-if (!isset($_SESSION['id_username'])) {
-    header("Location: ../Login/admin/admin.php");
-}
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inicio</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../../css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
@@ -22,9 +17,8 @@ include '../../dark-theme.php';
 ?>
 
 <body>
-
     <div class="topnav">
-        <a href="#">
+        <a href="../../../index.php">
             <p>La Costeña</p>
         </a>
         <a href="#">
@@ -36,11 +30,10 @@ include '../../dark-theme.php';
         <a href="#">
             <p>YouTube</p>
         </a>
-        <a href="../Login/admin/cerrar-sesion.php">
-            <p>Cerrar sesión</p>
+        <a href="index.php">
+            <p>Iniciar sesión</p>
         </a>
-        <a href="#">
-            <label class="switch">
+        <a href="#"><label class="switch">
                 <input class="btn btn-dark" type="checkbox" id="toggleTheme" <?php
                                                                                 if (isset($_COOKIE["theme"])) {
                                                                                     if ($_COOKIE["theme"] == "dark") {
@@ -50,29 +43,29 @@ include '../../dark-theme.php';
 
     </div>
 
-    <article>
-        <div class="todo">
-
-            <div class="title">
-                <h1>¡Bienvenido! Escoge qué quieres ver</h1>
-                <h2>Usuario: <?php echo $_SESSION['id_username']; ?></h2>
-            </div>
-            <div class="container-cards">
-                <div class="card">
-                    <img src="../../../img/empleados.png">
-                    <h4>Empleados</h4>
-                    <a href="ver_empleados.php">Ver</a>
+    <div class="contenedor">
+        <article>
+            <div class="todo">
+                <div class="title">
+                    <h1>¡Bienvenido! Escoge qué quieres hacer</h1>
                 </div>
-                <div class="card">
-                    <img src="../../../img/empleados.png">
-                    <h4>Platillos</h4>
-                    <a href="../Platillos/Mostrar.php">Ver</a>
+                <div class="container-cards">
+                    <div class="card">
+                        <img src="../../../img/admin.png">
+                        <h4>Administrador</h4>
+                        <a href="admin/admin.php">Ver</a>
+                    </div>
+                    <div class="card">
+                        <img src="../../../img/empleados.png">
+                        <h4>Clientes</h4>
+                        <a href="clientes/cliente.php">Ver</a>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-    </article>
+        </article>
+    </div>
 
     <script>
         $("#toggleTheme").on('change', function() {

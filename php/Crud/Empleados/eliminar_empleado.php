@@ -1,16 +1,8 @@
 <?php
-if (!empty($_POST)) {
-    include 'connection.php';
-    $username = trim($_POST['username']);
-
-    $cnu = Database::connect();
-    $cnu->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = $cnu->prepare("DELETE FROM usuarios WHERE id_username = ?");
-    $query->execute(array($username));
-    Database::disconnect();
-    header("Location: ver_empleados.php");
+session_start();
+if (!isset($_SESSION['id_username'])) {
+    header("Location: ../Login/admin/admin.php");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -99,3 +91,18 @@ if (!empty($_POST)) {
 </body>
 
 </html>
+<?php
+include 'connection.php';
+include("metodos-empleados.php");
+
+
+if (!empty($_POST)) {
+    $username = trim($_POST['username']);
+
+    $obj = new MetodosEmpleados();
+    $obj->eliminarEmpleado($username);
+
+    header("Location: ver_empleados.php");
+}
+
+?>

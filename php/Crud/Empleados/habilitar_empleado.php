@@ -1,15 +1,16 @@
 <?php
-
 include 'connection.php';
-$id = null;
-$id = $_GET['id'];
+include("metodos-empleados.php");
+session_start();
+if (!isset($_SESSION['id_username'])) {
+    header("Location: ../Login/admin/admin.php");
+} else {
+    $id = null;
+    $id = $_GET['id'];
+    $estado = "H";
 
-$username = trim($_POST['username']);
-$estado = "H";
+    $obj = new MetodosEmpleados();
+    $obj->habilitarEmpleado($estado, $id);
 
-$cnu = Database::connect();
-$cnu->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$query = $cnu->prepare("UPDATE usuarios SET estado_usuario = ? WHERE id_username = ?");
-$query->execute(array($estado, $id));
-Database::disconnect();
-header("Location: ver_empleados.php");
+    header("Location: ver_empleados.php");
+}
