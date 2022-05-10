@@ -28,11 +28,16 @@ class metodos
         $c = new conectar();
         $conexion = $c->conexion();
 
-        $sql = "UPDATE clientes set  Clien_User ='$datos[0]',
-        Clien_Contra='$datos[1]',
-        Clien_Nombre='$datos[2]',
-        Clien_Apellido='$datos[3]'
-        where Clien_User='$datos[4]'";
+        $sql = "UPDATE reservacion set 
+        Res_Telefono='$datos[0]',
+        Clien_User='$datos[1]',
+        Res_Nombre='$datos[2]',
+        Res_Email='$datos[3]',
+        Res_Cantidad='$datos[4]',
+        Res_Fecha='$datos[5]',
+        Res_Hora='$datos[6]'
+
+        where Clien_User='$datos[1]'";
         return $result = mysqli_query($conexion, $sql);
     }
 
@@ -40,7 +45,7 @@ class metodos
     {
         $c = new conectar();
         $conexion = $c->conexion();
-        $sql = "DELETE FROM clientes where Clien_User='$id'";
+        $sql = "DELETE FROM reservacion where Clien_User='$id'";
         return $result = mysqli_query($conexion, $sql);
     }
 }

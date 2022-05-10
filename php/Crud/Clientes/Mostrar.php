@@ -1,5 +1,6 @@
 <?php
 require_once "metodosCrud.php";
+
 require_once "../../conexion.php";
 
 ?>
@@ -136,6 +137,7 @@ include '../../dark-theme.php';
     <div>
         <a href="../Login/clientes/cliente.php" class="regresar btn btn-secondary">Regresar</a>
     </div>
+
 
     <script>
         $("#toggleTheme").on('change', function() {

@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION['id_username'])) {
     header("Location: ../Login/admin/admin.php");
 }
+$usuario=$_SESSION['id_username'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,31 +52,63 @@ include '../../dark-theme.php';
                                                                                 } ?>></label></a>
 
     </div>
+    <h2>Usuario: <?php echo $_SESSION['id_username']; ?></h2>
+    <div class="datos">
+        <?php
+        
+        $obj = new metodos();
+        $sql = "SELECT Res_Telefono,
+        Clien_User,
+        Res_Nombre,
+        Res_Email,
+        Res_Cantidad,
+        Res_Fecha,
+        Res_Hora from reservacion 
+        where Clien_User='$usuario'";
+        $datos = $obj->MostrarDatos($sql);
+        if ($datos == null) {
+        ?>
 
-    <article>
-        <div class="todo">
-
-            <div class="title">
-                <h1>¡Bienvenido! Escoge qué quieres ver</h1>
-                <h2>Usuario: <?php echo $_SESSION['id_username']; ?></h2>
+            <div class="title2">
+                <h1> Clientes registrados</h1>
             </div>
-            <div class="container-cards">
-                <div class="card">
-                    <img src="../../../img/reservacion.png">
-                    <h4>Reservación</h4>
-                    <a href="MisReserva.php">Ver</a>
-                </div>
+            <div class="wrapper">No hay clientes registrados</div>
+        <?php
+
+        } else {
+        ?>
+            <div class="title2">
+                <h1> Clientes registrados</h1>
             </div>
+            <table style="border-collapse: collapse;" class="table">
+                <tr>
+                    <td>Telefono</td>
+                    <td>Usuario</td>
+                    <td>Nombre</td>
+                    <td>Correo</td>
+                    <td>N° Invitados</td>
+                    <td>Fecha</td>
+                    <td>Hora</td>
+                </tr>
+                <?php
+                foreach ($datos as $key) {
+                ?>
+                    <tr>
+                        <td><?php echo $key['Res_Telefono']; ?></td>
+                        <td><?php echo $key['Clien_User']; ?></td>
+                        <td><?php echo $key['Res_Nombre']; ?></td>
+                        <td><?php echo $key['Res_Email']; ?></td>
+                        <td><?php echo $key['Res_Cantidad']; ?></td>
+                        <td><?php echo $key['Res_Fecha']; ?></td>
+                        <td><?php echo $key['Res_Hora']; ?></td>
+                        </tr>
+            <?php
+                }
+            }
 
-        </div>
-
-    </article>
-
-    <?php
-    
-    include "C:/wamp64/www/PROYECTO_DSS/php/Crud/Reservaciones/Reser_Form.php";
-  
-?>
+        ?>
+            </table>
+    </div>
     <script>
         $("#toggleTheme").on('change', function() {
             if ($(this).is(':checked')) {
