@@ -1,4 +1,6 @@
 <?php
+require_once "C:/wamp64/www/PROYECTO_DSS/php/Crud/Reservaciones/MetodosRes.php";
+require_once "../../conexion.php";
 session_start();
 if (!isset($_SESSION['id_username'])) {
     header("Location: ../Login/admin/admin.php");
@@ -69,6 +71,10 @@ include '../../dark-theme.php';
 
     </article>
 
+    <?php
+    include "C:/wamp64/www/PROYECTO_DSS/php/Crud/Reservaciones/Reser_Form.php";
+  
+?>
     <script>
         $("#toggleTheme").on('change', function() {
             if ($(this).is(':checked')) {

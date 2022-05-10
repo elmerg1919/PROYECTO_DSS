@@ -17,10 +17,8 @@ class metodos
         $c = new conectar();
         $conexion = $c->conexion();
 
-        $datosContra = md5($datos[1]);
-
-        $sql = "INSERT into clientes (Clien_User,Clien_Contra,Clien_Nombre,Clien_Apellido)
-         values ('$datos[0]','$datosContra','$datos[2]','$datos[3]')";
+        $sql = "INSERT into reservacion (Res_Telefono,Res_Nombre,Res_Email,Res_Cantidad,Res_Fecha,Res_Hora,Clien_User)
+         values ('$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]','$datos[6]')";
 
         return $result = mysqli_query($conexion, $sql);
     }

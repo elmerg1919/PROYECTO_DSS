@@ -2,7 +2,7 @@
 class Database
 {
     private static $dbName = 'restaurant';
-    private static $dbHost = 'localhost';
+    private static $dbHost = 'localhost:3308';
     private static $dbUsername = 'root';
     private static $dbUserPassword = '';
     private static $cont = null;

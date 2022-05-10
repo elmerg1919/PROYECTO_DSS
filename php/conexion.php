@@ -2,7 +2,7 @@
 
 class CONECTAR
 {
-    private $servidor = "localhost";
+    private $servidor = "localhost:3308";
     private $usuario = "root";
     private $bd = "restaurant";
     private $password = "";
@@ -25,5 +25,5 @@ if ($obj->conexion()) {
     echo "simona la mona";
 } else {
     echo "Nel sin conexion";
-}
-*/
+}*/
+
