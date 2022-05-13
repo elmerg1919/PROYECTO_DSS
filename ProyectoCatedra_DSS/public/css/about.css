@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Todo {
+    margin-top: 15px;
+}
+
+.historia {
+    width: 90%;
+    margin: 0 auto;
+    background-size: 100%;
+    background-position: 70%;
+    position: relative;
+    display: flex;
+}
+
+.wrapper {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.wrapper img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.historia .img {
+    margin-left: 8%;
+    margin-right: 10%;
+}
+
+.historia .info {
+    margin-left: 10%;
+}
+
+.historia .info h1 {
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.historia .info p {
+    text-align: justify;
+    margin-top: 5%;
+}
+
+.title {
+    text-align: center;
+    font-size: 20px;
+    color: #6a6a6a;
+    margin-bottom: 5%;
+}
+
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 8%;
+}
+
+.container-cards .card {
+    width: 400px;
+    border-radius: 2px;
+    overflow: hidden;
+    padding: 15px;
+    margin: 10px;
+    text-align: justify;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease-out;
+}
+
+.container-cards .card:hover {
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1%);
+}
+
+.container-cards .card p {
+    padding: 15px;
+}
+
+.container-cards .card h4 {
+    font-weight: 800;
+    color: #7a7a7a;
+    text-align: center;
+}
