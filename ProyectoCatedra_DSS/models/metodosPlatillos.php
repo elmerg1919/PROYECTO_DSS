@@ -17,8 +17,8 @@ class metodos
         $c = new conectar();
         $conexion = $c->conexion();
 
-        $sql = "INSERT into platillo (Plat_Codigo,Plat_Nombre,Plat_Categoria,Plat_Imagen)
-         values ('$datos[0]','$datos[1]','$datos[2]','$datos[3]')";
+        $sql = "INSERT into platillo (Plat_Codigo,Plat_Nombre,Plat_Categoria,Plat_Imagen,plat_Descripcion,plat_Precio)
+         values ('$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]')";
 
         return $result = mysqli_query($conexion, $sql);
     }
@@ -29,8 +29,11 @@ class metodos
         $conexion = $c->conexion();
 
         $sql = "UPDATE platillo SET Plat_Nombre='$datos[0]',
-        Plat_Categoria='$datos[1]'        
-        where Plat_Codigo='$datos[2]'";
+        plat_Precio='$datos[1]',
+        Plat_Categoria='$datos[2]',
+        plat_Descripcion='$datos[3]',
+        Plat_Imagen='$datos[4]'        
+        where Plat_Codigo='$datos[5]'";
         return $result = mysqli_query($conexion, $sql);
     }
 

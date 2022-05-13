@@ -6,12 +6,16 @@ $Codigo = $_POST['txtCodigo'];
 $Nombre = $_POST['txtNombre'];
 $Categoria = $_POST['txtCategoria'];
 $Imagen = addslashes(file_get_contents($_FILES['impimagen']['tmp_name']));
+$Descripcion = $_POST['txtDescripcion'];
+$Precio = $_POST['txtPrecio'];
 
 $datos = array(
     $Codigo,
     $Nombre,
     $Categoria,
-    $Imagen
+    $Imagen,
+    $Descripcion,
+    $Precio
 );
 $obj = new metodos();
 if ($obj->InsertarDatos($datos) == 1) {
